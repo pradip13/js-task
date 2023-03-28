@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+
+</head>
+       <style>
+       body{
+        margin: 0;
+        padding: 0;
+        background-size: cover;
+        background-color: aquamarine;
+        font-family: sans-serif;
+       }
+     
+       .container{
+        width: 50%;
+        height: 400px;
+        margin-top: 60px;
+        
+        /* border: 2px solid #fff; */
+        
+    }
+    
+    .container .left{
+        float: left;
+        width: 50%;
+        height: 400px;
+        background: url("./images/pic.jpg");
+        box-sizing: border-box;
+        background-size: cover;
+        
+    }
+    
+    .container .right{
+           background: #fff;
+        float: right;
+        width: 50%;
+        height: 400px;
+        box-sizing: border-box;
+       }
+       .right .form-box{
+        margin: 45px 15px;
+        
+
+       }
+       .btn{
+        width: 100%;
+        background: green;
+        color: white;
+       }
+       .form-box .account{
+       margin: 15px 7px;
+
+
+       }
+       .right .help{
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+        box-shadow: inset;
+       }
+      
+       .help .text{
+        color: yellow;
+       }
+       
+      
+       </style>
+
+ 
+<body>
+
+
+    <div class="container">
+        
+        <div class="left"></div>
+        <div class="right">
+            <div class="help">
+
+                <p class="text">Already Member</p>
+                <p>Need Help?</p>
+            </div>
+            <div class="form-box">
+                <form class="form" onsubmit="saveData()">
+                    <div class="form-group">
+                      <input type="email" class="form-control" name="email" id="email" placeholder="Enter email">
+                    </div>
+                    <div class="form-group" >
+                      <input type="password" class="form-control" name="password"  id="typepass" placeholder="Password">
+                      <input type="checkbox" 
+                      onclick="Toggle()">
+                  <strong style="margin-top: 10;">Show Password</strong>
+                    </div>
+                      
+                       
+                    <div class="btn">
+
+                        <button type="submit" class="btn" >Submit</button>
+                    </div>
+                    <div class="account">
+
+                        
+                        <span>Dont have an account yet? </span> <br>
+                        <a href="#">Create an account</a>
+                    </div>
+                  </form>
+                </div>
+        </div>
+
+    </div>
+
+  
+    <script>
+         function Toggle() {
+            var temp = document.getElementById("typepass");
+            if (temp.type === "password") {
+                temp.type = "text";
+            }
+            else {
+                temp.type = "password";
+            }
+        }
+
+        function saveData(e){
+            event.preventDefault();
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('typepass').value;
+
+            var user = {
+                email:email,
+                password:password,
+            };
+
+            var json = JSON.stringify(user);
+            localStorage.setItem('username',json);
+            console.log("data added");
+            
+        }
+       
+
+    </script>
+
+
+</body>
+</html>
